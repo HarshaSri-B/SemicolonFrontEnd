@@ -1,23 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ListEmployeeComponent from './components/ListEmployeeComponent';
+import React from 'react';
+import AddEmployeeComponent from './components/AddEmployeeComponent';
+import RegisterPageComponent from './components/RegisterPageComponent';
+import SuccesComponent from './components/SuccesComponent';
+import LoginComponent from './components/LoginComponent';
+import HomePageComponent from './components/HomePageComponent';
+import AdminLoginComponent from './components/AdminLoginComponent';
+import ProblemStatementsComponent from './components/ProblemStatementsComponent';
+import AboutUsComponent from './components/AboutUsComponent';
+import HeaderComponent from './components/HeaderComponent';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      {//<HeaderComponent />
+      }
+      <Router>
+       
+        <div className= "container">
+       
+          <Routes>
+          
+             {// <Route exact path="/" render={() => {window.location.href="Home.html"}} />
+}
+              <Route exact path = "/" element = {<HomePageComponent />}></Route>
+              <Route  path = "/Admin.html" element = {<AdminLoginComponent />}></Route>
+              <Route  path = "/register.html" element = {<RegisterPageComponent />}></Route>
+              <Route  path = "/User.html" element = {<LoginComponent />}></Route>
+              <Route  path = "/sm.html" element = {<SuccesComponent />}></Route>
+              <Route path = "/employees" element = {<ListEmployeeComponent />}></Route>
+              <Route path = "/add-employee" element = {<AddEmployeeComponent />}></Route>
+              <Route path = "/edit-employee/:id" element = {<AddEmployeeComponent />}></Route>
+              <Route  path = "/ProblemStatement.html" element = {<ProblemStatementsComponent />}></Route>
+              <Route  path = "/About.html" element = {<AboutUsComponent />}></Route>
+          </Routes>
+         
+        </div>
+        
+        </Router>
     </div>
   );
 }
